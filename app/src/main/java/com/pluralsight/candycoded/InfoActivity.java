@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
 
 public class InfoActivity extends AppCompatActivity {
-    Uri geoLocation;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +35,8 @@ public class InfoActivity extends AppCompatActivity {
     // ***
 
     public void createMapIntent(View view) {
-        geoLocation.parse("geo:0, 0 ? q = 618 E South St Orlando, FL 32801");
-        Intent mapIntent = new Intent(Intent.ACTION_VIEW, geoLocation);
+        Uri uri = Uri.parse("geo:0, 0 ? q = 618 E South St Orlando, FL 32801");
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, uri);
         mapIntent.setPackage("com.google.android.apps.maps");
         if (mapIntent.resolveActivity(getPackageManager()) != null) {
             startActivity(mapIntent);
